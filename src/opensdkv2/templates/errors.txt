@@ -1,0 +1,5 @@
+In {{location}}, create an error/exception called {{active_error.name}} in {{active_error.language}}.
+{% if active_error.description %}Add a comment that says: "{{active_error.description}}"
+{% endif %}{% if active_error.message %}Set the default error message to: "{{active_error.message}}"
+{% endif %}
+

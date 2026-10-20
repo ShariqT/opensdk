@@ -1,0 +1,22 @@
+language: python
+version: "0.1rc1"
+required_libraries:
+  - 'mongodb'
+  - 'markdown'
+classes:
+  - name: Router
+    properties:
+      - name: "version"
+        datatype: "string"
+        description: "The version of Router"
+        value: "0.0.1"
+    methods:
+      - name: "start"
+        params:
+          - name: "url"
+            datatype: "str"
+            description: "Raw url from server request"
+        returns:
+          - datatype: "dict"
+            description: "A dictionary of the parsed url"
+        prompt: "Parses the `url` parameter and returns a dictionary of the hostname, port number and path"

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opensdkv2/schemas/flask/main.schema.json",
+  "title": "Flask framework spec",
+  "description": "Schema for framework_example/main.yaml (flask plugin).",
+  "type": "object",
+  "required": ["language", "version", "location", "plugin", "framework"],
+  "properties": {
+    "language": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Target programming language."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Spec version, e.g. \"0.0.1\"."
+    },
+    "location": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Output path for the generated code."
+    },
+    "plugin": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Plugin used to generate/validate this spec."
+    },
+    "framework": {
+      "type": "object",
+      "required": ["routes"],
+      "properties": {
+        "routes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["method", "path", "callback"],
+            "properties": {
+              "method": {
+                "type": "string",
+                "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"]
+              },
+              "path": {
+                "type": "string",
+                "pattern": "^/",
+                "description": "URL route path, starting with '/'."
+              },
+              "callback": {
+                "type": "object",
+                "required": ["prompt"],
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Natural-language description of the handler's behaviour."
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

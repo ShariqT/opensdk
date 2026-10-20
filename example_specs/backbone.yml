@@ -1,0 +1,11 @@
+language: "python"
+version: "0.1rc1"
+location: "/src/backbone/classes.py"
+constants:
+  - name: "BACKBONE_SEED"
+    description: "Starting point for random number generator"
+    datatype: "int"
+    value: 304
+classes:
+  - use: "./example_specs/classes/Router.yaml#classes.Router"
+  - use: "./example_specs/classes/Backbone.yaml#classes.Backbone"

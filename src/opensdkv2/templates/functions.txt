@@ -1,0 +1,7 @@
+In {{location}}, create the following function in {{active_function.language}}.
+
+The function should be named '{{active_function.name}}' and {{active_function.prompt}}. The function
+takes in the following parameters: 
+{% for p in active_function.params %}
+    - {{p.name}} that is a {{p.datatype}}. This paramter is {{p.description}}
+{% endfor %}

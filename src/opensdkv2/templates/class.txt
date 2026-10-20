@@ -1,0 +1,34 @@
+In {{location}}, create a class called {{active_class.name}} in {{active_class.language}}:
+{% if active_class.inherits|length != 0 %}
+    This class has the following parent classes:
+    {% for pclass in active_class.inherits %}
+        - {{pclass.name}} from the file {{pclass.location}}
+    {% endfor %}
+{% endif %}
+
+{% if active_class.implements|length != 0 %}
+    This class also implements the following protocols:
+    {% for protocol in active_class.implements %}
+        - {{ protocol.name }}
+    {% endfor %}
+{% endif %}
+
+{% if active_class.properties|length != 0 %}
+The class has the following properties:
+    {% for property in active_class.properties %}
+    - {{property.name}} is a {{property.view |default("public")}} {{property.prop_type|default("instance")}} variable that has is a {{property.datatype}}. Add a comment next to this
+    property that says: "{{property.description}}" {% if property.value != None %} The value for this property should be '{{property.value}}'. {% endif %}
+    {% endfor %}
+{% else %}
+   There are no properties for this class.
+{% endif %}
+
+
+In this class create the following methods:
+{% for method in active_class.methods %}
+- {{method.name}} will {{method.prompt}}. The method will have the following parameters:
+    {% for p in method.params %}
+        - {{p.name}} is a {{p.datatype}}
+    {% endfor %}
+
+{% endfor %}

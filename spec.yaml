@@ -1,0 +1,77 @@
+language: python
+version: "0.0.1"
+location: "src/backbone/bb.py"
+references:
+  - "./example_specs/interfaces.yml"
+required_libraries:
+  - "jinja2"
+  - "markdown"
+  - "beautifulsoup4"
+constants:
+  - name: "CONSTANT_NAME"
+    description: "My constant description"
+    datatype: "int"
+    value: "1"
+interfaces:
+  - name: "INTERFACE_NAME"
+    description: "My interface description"
+    methods:
+      - name: "METHOD_NAME"
+        description: "My method description"
+        params:
+          - datatype: "int"
+            name: "param1"
+            description: "My param1 description"
+        returns:
+          - datatype: "int"
+            description: "My return description"
+        onfailure:
+          - "errors#ExceptionName"
+classes:
+  - name: Backbone
+    properties:
+      - name: "version"
+        datatype: "string"
+        description: "The version of Backbone"
+        value: "0.0.1"
+    constructor:
+      params:
+        - name: "plugin_directory"
+          datatype: "string"
+          required: true
+    methods:
+      - name: "METHOD_NAME"
+        description: "My method description"
+        prompt: "This funciton will do the following...."
+        params:
+          - datatype: "int"
+            name: "param1"
+            description: "My param1 description"
+          - datatype: "classes#Plugin"
+            name: "param2"
+            description: "My plugin description"
+        returns:
+          - datatype: "int"
+            description: "My return description"
+        onfailure:
+          - "errors#ERROR_NAM22E"
+  - name: Plugin
+    properties:
+      - name: "plugin_name"
+        datatype: "string"
+        description: "Name of plugin package"
+  - use: "./example_specs/classes/Router.yaml#classes.Router"
+
+functions:
+  - name: "start"
+    prompt: "Return an instance of the Backbone class"
+    params:
+      - datatype: "int"
+        name: "param1"
+        description: "My param1 description"
+  - name: "add_plugin"
+    prompt: "Loads a python module from a specificed directory. "
+errors:
+  - name: "ERROR_NAM22E"
+    description: "My error description"
+    message: "My error message"

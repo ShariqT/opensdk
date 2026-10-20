@@ -1,0 +1,10 @@
+language: "python"
+version: "0.1rc1"
+location: "/src/backbone/__init__.py"
+functions:
+  - name: "start"
+    description: "Entrypoit for the backbone component"
+    prompt: > 
+      "Create an instance of the Router class. This instance is used a 
+      parameter for the creation of an instance of the Backbone class. 
+      This is returned from the function."

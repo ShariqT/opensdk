@@ -1,0 +1,42 @@
+Before starting, you must have Flask installed. Check installation
+by reading the uv.lock file first. It should list flask as a dependency. 
+This is an example of declaring a route in Flask:
+```
+from flask import request, Flask
+
+app = Flask(__name__)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return do_the_login()
+    else:
+        return show_the_login_form()
+```
+
+This an example of declaring a route with a variable 
+```
+@app.route('/post/<int:post_id>')
+def show_post(post_id):
+    # show the post with the given id, the id is an integer
+    return f'Post {post_id}'
+```
+
+
+This is an example of returning a JSON response from Flask
+```
+@app.route("/me")
+def me_api():
+    user = get_current_user()
+    return {
+        "username": user.username,
+        "theme": user.theme,
+        "image": url_for("user_image", filename=user.image),
+    }
+```
+
+
+In {{location}}, create the following routes:
+{% for route in data['routes'] %}
+    - {{route['path']}}. This route should allow {{route['method']}} requests. The callback function for 
+    this route should be the following: {{route['callback']['prompt']}}
+{%endfor %}

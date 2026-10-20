@@ -1,0 +1,17 @@
+If you encounter the following symbols, import them from {{location}}:
+{% for const in constants %}
+- {{const.name}}
+{% endfor %}
+{% for class in classes %}
+- {{ class.name }}
+{% endfor %}
+{% for function in functions %}
+- {{ function.name }}
+{% endfor %}
+{% for interface in interfaces %}
+- {{ interface.name }}
+{% endfor %}
+{% for err in errors %}
+- {{ err.name }}
+{% endfor %}
+

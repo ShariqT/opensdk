@@ -1,0 +1,20 @@
+language: python
+version: "0.0.1"
+location: "./mytestrepo/bb.py"
+plugin: "flask"
+framework:
+  routes:
+    - method: "GET"
+      path: "/easier/{heat}"
+      callback: 
+        prompt: "This function will add 1 to the value in heat. Returns a JSON response in shape of {'val': {{heat}} }"
+    - method: "POST"
+      path: "/v1/add"
+      callback:
+        prompt: "This function will take the JSON body of the POST request \ 
+                 and make sure that it is in the shape of \
+                 {'num1': {{value1}}, 'num2': {{value2}} }. Add the values in value1 and value2 \
+                 together and return the result in the JSON resposne.
+                "  
+
+

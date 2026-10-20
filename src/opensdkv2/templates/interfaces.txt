@@ -1,0 +1,17 @@
+In {{location}}, create a protocol called {{active_interface.name}} in {{active_interface.language}}.
+{% if active_interface.description %}Add a comment that says: "{{active_interface.description}}"{% endif %}
+
+In this Protocol, define the following methods:
+{% for method in active_interface.methods %}
+- {{method.name}}:
+  {% if method.description %}Description: {{method.description}}{% endif %}
+  {% if method.params %}Parameters:
+  {% for param in method.params %}    - {{param.name}} ({{param.datatype}}){% if param.description %}: {{param.description}}{% endif %}
+  {% endfor %}{% endif %}
+  {% if method.returns %}Returns:
+  {% for ret in method.returns %}    - {{ret.datatype}}{% if ret.description %}: {{ret.description}}{% endif %}
+  {% endfor %}{% endif %}
+  {% if method.onfailure %}On Failure: {{method.onfailure | join(', ')}}
+{% endif %}
+{% endfor %}
+

@@ -1,0 +1,14 @@
+language: python
+version: "0.0.1"
+location: "./mytestrepo/bb.py"
+references:
+  - "./mytestrepo.yaml"
+required_libraries:
+  - "jinja2"
+  - "markdown"
+  - "beautifulsoup4"
+functions:
+  - name: "health"
+    prompt: "This function takes the value of the constant E and adds 31 to it. The function returns this new number."
+    returns:
+      - datatype: "float"

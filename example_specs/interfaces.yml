@@ -1,0 +1,13 @@
+language: "python"
+version: "0.1rc1"
+location: "/src/backbone/interfaces.py"
+interfaces:
+  - name: "ExportableJSON"
+    description: "Allows a class to export vital information into a JSON format"
+    methods:
+      - name: "to_json"
+        description: "Outputs JSON object"
+        returns:
+          - datatype: "string"
+            description: "The JSON string"
+          

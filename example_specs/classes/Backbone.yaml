@@ -1,0 +1,16 @@
+language: python
+version: "0.1rc1"
+required_libraries:
+  - "jinja2"
+classes:
+  - name: Backbone
+    properties:
+      - name: "version"
+        datatype: "string"
+        description: "The version of Backbone"
+        value: "0.0.1"
+    constructor:
+      params:
+        - name: "plugin_directory"
+          datatype: "string"
+          required: true

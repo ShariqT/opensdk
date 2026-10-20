@@ -1,0 +1,4 @@
+Create a constant called {{active_constant.name}} in {{active_constant.language}}.
+The constant should be a {{active_constant.datatype}} with the value '{{active_constant.value}}'.
+Add a comment that says: "{{active_constant.description}}"
+
