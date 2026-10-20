@@ -273,6 +273,19 @@ uv run pytest      # run the test suite
 uv run opensdk --help   # exercise the CLI
 ```
 
+## ROADMAP
+This is a just a short list of additions that will be coming in the following days/weeks:
+- Right now, this will generate Python code. I eventually want this to support Typescript, Golang, and Rust.
+The goal is that the implemenetation language is secondary to the prompts and yaml files that specify how the
+code should behave. 
+- I want to support other model providers. Right now you need a
+Wavespeed API (I personally like their service.)
+- Make it so that all of the yaml files are validated by a jsonschema (right now, only plugins are 
+validated like this)
+- The required libraries section of the yaml file is not parsed at all. 
+
+ 
+
 ## License
 
 See the repository for license details.
